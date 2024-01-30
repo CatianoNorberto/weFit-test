@@ -3,7 +3,7 @@ import { xs, sm, md } from '../../styles/responsiveStyles';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 export const Content = styled.div`
   width: 100%;
@@ -24,6 +24,9 @@ export const Content = styled.div`
 `;
 
 export const ContentCard = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;

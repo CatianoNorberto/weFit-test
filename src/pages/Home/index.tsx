@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-import Header from '../../components/Header'
- import Card from '../../components/Card'
+import Card from '../../components/Card'
 // import Cart from '../Cart'
-
+import Loading from '../../components/Loading'
 import HomemAranhaImg from '../../assets/imagens/homem-aranha.png'
 // import Success from '../Success'
 
@@ -18,33 +18,34 @@ type CardType = {
 }
 
 function Home() {
+  const navigate = useNavigate();
   const [data, setData ] = useState<CardType[]>()
 
   useEffect(() => {
     axios.get('http://localhost:3333/products')
-    .then(response => setData(response.data));
+    .then(response => {
+      setTimeout(() => {
+        setData(response.data)
+      }, 2000)
+    });
   }, [])
-  console.log(data)
 
-   const handleButtonClick = () => {
-     console.log('Botão clicado!');
-     // Adicione sua lógica aqui
+   const handleButtonCart = () => {
+     navigate('/products')
    };
   return (
     <Container>
       <Content>
-        <Header/>
         <ContentCard>
-          {data?.map(item =>(
+          {data?.length? data?.map(item =>(
              <Card
               key={item.id} 
               imagemUrl={item.image}
               titulo={item.title}
               valor={item.price}
-              onButtonClick={handleButtonClick}
+              onButtonClick={handleButtonCart}
             />
-          ))}
-         
+          )): <Loading />}
         </ContentCard>
       </Content>
       {/* <Cart 
