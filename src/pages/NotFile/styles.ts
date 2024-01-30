@@ -5,16 +5,29 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 20px;
+
+  ${md`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
+  ${sm`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
+  ${xs`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
 `
 export const Content = styled.div`
   width: 100%;
   margin: 0 auto;
   max-width: 960px;
-  height: 100%;
+  height: 100vh;
   max-height: 574px;
   background: #FFF;
   border-radius: 4px;
-  padding: 60px;
+  padding: 60px 0;
 
   display: flex;
   align-items: center;
@@ -48,6 +61,8 @@ export const Content = styled.div`
     font-weight: 700;
     text-transform: uppercase;
   }
+
+  
 `
 export const Divider = styled.div`
   width: 100%;

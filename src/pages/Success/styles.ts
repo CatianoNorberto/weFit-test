@@ -1,15 +1,29 @@
 import styled from 'styled-components'
+import { xs, sm, md } from '../../styles/responsiveStyles';
 
 export const Container = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 20px;
+
+  ${md`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
+  ${sm`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
+  ${xs`
+    padding-left: 16px;
+    padding-right: 16px;
+  `}
 `
 export const Content = styled.div`
   width: 100%;
   margin: 0 auto;
   max-width: 960px;
-  height: 100%;
+  height: 100vh;
   max-height: 574px;
   background: #FFF;
   border-radius: 4px;
@@ -46,5 +60,6 @@ export const Content = styled.div`
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
+    cursor: pointer;
   }
 `

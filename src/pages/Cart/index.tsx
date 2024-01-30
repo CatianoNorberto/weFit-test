@@ -1,13 +1,9 @@
-import React from 'react'
+import { useContext } from 'react'
 import { MdDelete } from "react-icons/md";
+import { useNavigate } from 'react-router-dom'
 
-interface CartProps {
-  imagemUrl: string;
-  titulo: string;
-  valor: number;
-  onButtonClick: () => void;
-}
-
+import CartContext from "../../context/cartContext";
+import NotFile from '../NotFile';
 import { 
   Container, 
   Content, 
@@ -17,11 +13,29 @@ import {
   CoverTitle,
   Counter,
   Action,
-  DeleteContent,
   Divider
 } from './styles'
 
-function Cart({ imagemUrl, titulo, valor, onButtonClick }: CartProps) {
+function Cart() {
+  const navigate = useNavigate();
+
+  const handleButtonSuccess = () => {
+    navigate('/success')
+  };
+
+  const {
+    products,
+    removeProduct,
+    handleIncrease,
+    handleDecrease,
+    total,
+  } = useContext(CartContext);
+
+  if (products.length === 0) {
+    // Se não houver nenhum produto, renderize o componente NotFile
+    return <NotFile />;
+  }
+
   return (
     <Container>
       <Content>
@@ -33,32 +47,37 @@ function Cart({ imagemUrl, titulo, valor, onButtonClick }: CartProps) {
             <h2>Subtotal</h2>
             <h2></h2>
           </TitlesHeader>
-          <QuiteContent>
-            <CoverTitle>
-              <img src={imagemUrl} alt="" />
-              <div>
-                <h2>{titulo}</h2>
-                <p>R$ {valor}</p>
-              </div>
-            </CoverTitle>
-            <Counter>
-              <span>-</span>
-              <div className='number'>
-                <p>1</p>
-              </div>
-              <span>+</span>
-            </Counter>
-            <div><p className='subtotal'>R$ {valor}</p></div>
-            <DeleteContent>
-              <MdDelete size={24} color='#009EDD'/>
-            </DeleteContent>
-          </QuiteContent>
-          <Divider></Divider>
+          {products?.map((item) => (
+            <QuiteContent key={item.id}>
+              <CoverTitle>
+                <img src={item.image} alt="" />
+                <div>
+                  <h2>{item.title}</h2>
+                  <p>R$ {item.price}</p>
+                </div>
+              </CoverTitle>
+              <Counter>
+                <span onClick={() => handleDecrease(item.id)}>-</span>
+                <div className='number'>
+                  <p>{item.quantity ?? 1}</p>
+                </div>
+                <span onClick={() => handleIncrease(item.id)}>+</span>
+              </Counter>
+              <div><p className='subtotal'>R$ {(item.price * item.quantity).toFixed(2)}</p></div>
+              <button onClick={() => removeProduct(item.id)}>
+                <MdDelete size={24} color='#009EDD'/>
+              </button>
+            </QuiteContent>
+          ))}
+          
           <Action>
-            <button onClick={onButtonClick}>Finalizar Pedido</button>
-            <div className='total'>
-              <p>Total</p>
-              <h2>R$ 20,90</h2>
+            <Divider></Divider>
+            <div className='actionBtn'>
+              <button onClick={handleButtonSuccess}>Finalizar Pedido</button>
+              <div className='total'>
+                <p>Total</p>
+                <h2>R$ {total.toFixed(2)}</h2>
+              </div>
             </div>
           </Action>
         </CardContent>

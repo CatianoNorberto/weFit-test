@@ -38,4 +38,8 @@ export default createGlobalStyle`
       display: none;
     }
   }
+
+  .MuiCircularProgress-svg{
+    color: #FFF;
+  }
 `;

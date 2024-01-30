@@ -31,7 +31,6 @@ export const ContentCard = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 20px;
-  /* grid-auto-rows: minmax(180px); */
 
   ${md`
     display: block;

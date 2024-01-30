@@ -15,11 +15,16 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  h2{
-    font-size: 20px;
-    font-weight: 700;
-    color: #FFF;
+  a{
+    text-decoration: none;
+
+    h1{
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFF;
+    }
   }
+  
 `
 export const CartContent = styled.div`
   display: flex;
@@ -35,6 +40,7 @@ export const ItemTitle = styled.div`
    font-size: 14px;
    font-weight: 600;
    line-height: 19.07px;
+   color: #FFF;
 
    ${md`
     display: none;

@@ -5,14 +5,14 @@ import { xs, sm, md } from '../../styles/responsiveStyles';
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+  margin-bottom: 16px;
 `
 export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  
-  width: 309.33px;
+  width: 100%;
   height: 305px;
   background-color: #FFF;
   padding: 8px;
@@ -67,7 +67,7 @@ export const Content = styled.div`
     }
   }
 
-  ${md`
+  /* ${md`
     width: 375px;
   `}
   ${sm`
@@ -75,5 +75,5 @@ export const Content = styled.div`
   `}
   ${xs`
     width: 375px;
-  `}
+  `} */
 `

@@ -11,7 +11,7 @@ function Success() {
   const navigate = useNavigate();
 
   const handleHome = () =>{
-    navigate('/home')
+    navigate('/')
   }
 
   return (
