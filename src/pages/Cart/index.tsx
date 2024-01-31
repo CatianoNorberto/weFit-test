@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom'
 
@@ -20,11 +20,6 @@ import {
 
 function Cart() {
   const navigate = useNavigate();
-
-  const handleButtonSuccess = () => {
-    navigate('/success')
-  };
-
   const {
     products,
     removeProduct,
@@ -32,6 +27,27 @@ function Cart() {
     handleDecrease,
     total,
   } = useContext(CartContext);
+  
+
+  const handleButtonSuccess = () => {
+    // Obtém o id do primeiro produto (ajuste conforme necessário)
+    const productId = products.length > 0 ? products[0].id : '';
+  
+    // Remove o produto com o id específico (pode ser uma string vazia se o carrinho estiver vazio)
+    removeProduct(productId);
+  
+    // Atualiza o localStorage para refletir o carrinho vazio
+    localStorage.setItem('cart', JSON.stringify([]));
+  
+    // Navega para a página de sucesso
+    navigate('/success');
+  };
+  
+
+  useEffect(() => {
+    // Atualiza o carrinho no localStorage sempre que os produtos mudarem
+    localStorage.setItem('cart', JSON.stringify(products));
+  }, [products]);
 
   if (products.length === 0) {
     // Se não houver nenhum produto, renderize o componente NotFile

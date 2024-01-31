@@ -18,9 +18,11 @@ function NotFile() {
   return (
     <Container>
       <Content>
-        <h2>Parece que não tem nada aqui:(</h2>
-        <img src={ImgNotFile} alt="" />
-        <Divider></Divider>
+        <h2>Parece que não tem nada aqui :(</h2>
+        <div className='notfile'>
+          <img src={ImgNotFile} alt="" />
+          <Divider></Divider>
+        </div>
         <button onClick={handleHome}>Voltar</button>
       </Content>
     </Container>

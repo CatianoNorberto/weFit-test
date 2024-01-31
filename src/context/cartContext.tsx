@@ -11,6 +11,7 @@ interface Book {
 interface Cart {
   products: Book[];
   total: number;
+  setProducts: React.Dispatch<React.SetStateAction<Book[]>>;
   addCart: (data: Book) => void;
   productAlreadyAdded: (id: string) => boolean;
   removeProduct: (id: string) => void;
@@ -48,10 +49,18 @@ export const CartProvider = ({ children }: Props) => {
   }
 
   //função para remover o produto 
-  function removeProduct(id: string) {
-    const filteredProducts = products.filter((book) => book.id !== id);
+  function removeProduct(id?: string) {
+    // Se o id for fornecido, remove o produto correspondente
+    // Caso contrário, limpa todos os produtos do carrinho
+    const filteredProducts = id
+      ? products.filter((book) => book.id !== id)
+      : [];
+  
     setProducts(filteredProducts);
+  
+    localStorage.setItem('cart', JSON.stringify(filteredProducts));
   }
+  
 
   function handleIncrease(id: string) {
     const productUpdated = products.map((book) => {
@@ -81,6 +90,7 @@ export const CartProvider = ({ children }: Props) => {
     <CartContext.Provider
       value={{
         products,
+        setProducts,
         addCart,
         total,
         productAlreadyAdded,

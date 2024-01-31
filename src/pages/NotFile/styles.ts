@@ -16,15 +16,23 @@ export const Content = styled.div`
   margin: 0 auto;
   max-width: 960px;
   height: 100vh;
-  max-height: 574px;
+  max-height: 532px;
   background: #FFF;
   border-radius: 4px;
-  padding: 60px 0;
+  padding: 64px 0;
 
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+
+  .notfile{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   h2{
     font-size: 20px;
@@ -36,6 +44,7 @@ export const Content = styled.div`
       text-align: center;
     `}
   }
+
   img{
     width: 178.63px;
     height: 264px;
