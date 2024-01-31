@@ -5,13 +5,12 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
     outline: 0;
   }
 
   body {
     background: #2F2E41;
-    /* font-family: 'Int'; */
-    color: #312e38;
     -webkit-font-smoothing: antialiased;
     scrollbar-width: thin;
   }

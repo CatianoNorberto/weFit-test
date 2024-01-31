@@ -1,11 +1,13 @@
 import styled from 'styled-components'
-import { xs, sm, md } from '../../styles/responsiveStyles';
+import { md } from '../../styles/responsiveStyles';
 
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
-  margin-bottom: 16px;
+
+  ${md`
+    margin-bottom: 16px;
+  `}
 `
 export const Content = styled.div`
   display: flex;
@@ -66,14 +68,4 @@ export const Content = styled.div`
       text-transform: uppercase;
     }
   }
-
-  /* ${md`
-    width: 375px;
-  `}
-  ${sm`
-    width: 375px;
-  `}
-  ${xs`
-    width: 375px;
-  `} */
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { xs, sm, md } from '../../styles/responsiveStyles';
+import { md } from '../../styles/responsiveStyles';
 
 export const Container = styled.div`
   width: 100%;
@@ -7,14 +7,6 @@ export const Container = styled.div`
   margin-top: 20px;
 
   ${md`
-    padding-left: 16px;
-    padding-right: 16px;
-  `}
-  ${sm`
-    padding-left: 16px;
-    padding-right: 16px;
-  `}
-  ${xs`
     padding-left: 16px;
     padding-right: 16px;
   `}
@@ -39,6 +31,10 @@ export const Content = styled.div`
     font-weight: 700;
     line-height: 27.24px;
     color: #2F2E41;
+
+    ${md`
+      text-align: center;
+    `}
   }
   img{
     width: 178.63px;
@@ -70,12 +66,6 @@ export const Divider = styled.div`
   border: 1px solid #3F3D56;
 
   ${md`
-    width: 100%;
-  `}
-  ${sm`
-    width: 100%;
-  `}
-  ${xs`
     width: 100%;
   `}
 `

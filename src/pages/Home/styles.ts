@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { xs, sm, md } from '../../styles/responsiveStyles';
+import { md } from '../../styles/responsiveStyles';
 
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+  padding-bottom: 80px;
 `;
 export const Content = styled.div`
   width: 100%;
@@ -13,12 +14,6 @@ export const Content = styled.div`
 
   ${md`
     width: ;
-    padding: 0 16px;
-  `}
-  ${sm`
-    padding: 0 16px;
-  `}
-  ${xs`
     padding: 0 16px;
   `}
 `;
@@ -33,12 +28,6 @@ export const ContentCard = styled.div`
   margin-top: 20px;
 
   ${md`
-    display: block;
-  `}
-  ${sm`
-    display: block;
-  `}
-  ${xs`
     display: block;
   `}
 `;

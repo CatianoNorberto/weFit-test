@@ -4,14 +4,12 @@ import { useNavigate } from 'react-router-dom'
 
 import CartContext from "../../context/cartContext";
 import NotFile from '../NotFile';
+import ResponsiveCart from '../../components/ResponsiveCart';
+
 import { 
   Container, 
   Content, 
   CardContent,
-  TitlesHeader,
-  QuiteContent,
-  CoverTitle,
-  Counter,
   Action,
   Divider
 } from './styles'
@@ -40,36 +38,42 @@ function Cart() {
     <Container>
       <Content>
         <CardContent>
-          <TitlesHeader>
-            <h2>Produto</h2>
-            <h2></h2>
-            <h2>Qtd</h2>
-            <h2>Subtotal</h2>
-            <h2></h2>
-          </TitlesHeader>
-          {products?.map((item) => (
-            <QuiteContent key={item.id}>
-              <CoverTitle>
-                <img src={item.image} alt="" />
-                <div>
-                  <h2>{item.title}</h2>
-                  <p>R$ {item.price}</p>
-                </div>
-              </CoverTitle>
-              <Counter>
-                <span onClick={() => handleDecrease(item.id)}>-</span>
-                <div className='number'>
-                  <p>{item.quantity ?? 1}</p>
-                </div>
-                <span onClick={() => handleIncrease(item.id)}>+</span>
-              </Counter>
-              <div><p className='subtotal'>R$ {(item.price * item.quantity).toFixed(2)}</p></div>
-              <button onClick={() => removeProduct(item.id)}>
-                <MdDelete size={24} color='#009EDD'/>
-              </button>
-            </QuiteContent>
-          ))}
-          
+          <table>
+            <tr>
+              <th className='ImgTitle'>Produto</th>
+              <th>Qtd</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+            {products.map((item) =>(
+              <tr key={item.id}>
+                <td className='ImgTitle'>
+                  <img src={item.image} alt="" />
+                  <div className='Title'>
+                    <h2>{item.title}</h2>
+                    <p>R$ {item.price}</p>
+                  </div>
+                </td>
+                <td>
+                  <div className='counter'>
+                    <span onClick={() => handleDecrease(item.id)}>-</span>
+                    <div className='number'>
+                      <p>{item.quantity ?? 1}</p>
+                    </div>
+                    <span onClick={() => handleIncrease(item.id)}>+</span>
+                  </div>
+                </td>
+                <td>
+                  <p className='subtotal'>R$ {(item.price * item.quantity).toFixed(2)}</p>
+                </td>
+                <td className='action'>
+                  <button onClick={() => removeProduct(item.id)}>
+                    <MdDelete size={24} color='#009EDD'/>
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </table>
           <Action>
             <Divider></Divider>
             <div className='actionBtn'>
@@ -81,6 +85,7 @@ function Cart() {
             </div>
           </Action>
         </CardContent>
+        <ResponsiveCart/>
       </Content>
     </Container>
   )
