@@ -1,12 +1,10 @@
-import CircularProgress from '@mui/material/CircularProgress';
-
-import { Container } from './styles'
+import { LoadingContainer, LoadingSpinner } from './styles'
 
 function Loading() {
   return (
-    <Container>
-      <CircularProgress />
-    </Container>
+    <LoadingContainer>
+      <LoadingSpinner />
+    </LoadingContainer>
   );
 }
 

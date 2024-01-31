@@ -30,7 +30,22 @@ export const CardContent = styled.div`
     th{
       text-align: left;
     }
+
+    .headerTitle{
+      color: #999999;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .content{
+      margin-bottom: 20px;
+    }
   }
+
+  
+
   .ImgTitle{
     width: 100%;
     max-width: 356px;
@@ -93,12 +108,8 @@ export const CardContent = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 14px;
-      border: 2px solid #009EDD;
-      color: #009EDD;
-      font-weight: 700;
+      width: 24px;
+      height: 24px;
     }
   }
 
@@ -139,7 +150,7 @@ export const CardContent = styled.div`
 
 export const Divider = styled.div`
   border: 1px solid #D9D9D9;
-  margin: 16px 0;
+  margin: 20px 0;
 `
 export const Action = styled.div`
   display: flex;

@@ -15,18 +15,6 @@ export default createGlobalStyle`
     scrollbar-width: thin;
   }
 
-  @media (max-width: 1080px) {
-    html {
-      font-size: 93.75%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    html {
-      font-size: 87.5%;
-    }
-  }
-
   body #root{
     /* height: 100%; */
      /* Hide scrollbar for IE, Edge and Firefox */
@@ -36,9 +24,5 @@ export default createGlobalStyle`
     ::-webkit-scrollbar {
       display: none;
     }
-  }
-
-  .MuiCircularProgress-svg{
-    color: #FFF;
   }
 `;

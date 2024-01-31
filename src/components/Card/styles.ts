@@ -17,7 +17,7 @@ export const Content = styled.div`
   width: 100%;
   height: 305px;
   background-color: #FFF;
-  padding: 16px;
+  padding: 10px 11px;
   border-radius: 4px;
 
   >img{

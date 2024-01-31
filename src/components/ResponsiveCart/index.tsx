@@ -2,6 +2,10 @@ import { useContext } from 'react'
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom'
 
+import ImgVectorNeg from '../../assets/imagens/vectorneg.png'
+import ImgVectorPos from '../../assets/imagens/vectorpos.png'
+
+import { formatMoney } from '../../utils/formatMoney'
 import CartContext from "../../context/cartContext";
 
 import { 
@@ -44,22 +48,26 @@ function ResponsiveCart() {
                 <div>
                   <h2>{item.title}</h2>
                 </div>
-                <p>R$ {item.price}</p>
+                <p>{formatMoney(item.price)}</p>
                 <button onClick={() => removeProduct(item.id)}>
                   <MdDelete size={24} color='#009EDD'/>
                 </button>
               </Counter>
               <div className="ContainerCounter">
                 <div className="counter">
-                  <span onClick={() => handleDecrease(item.id)}>-</span>
+                  <span onClick={() => handleDecrease(item.id)}>
+                    <img src={ImgVectorNeg} alt="" />
+                  </span>
                   <div className='number'>
                     <p>{item.quantity ?? 1}</p>
                   </div>
-                  <span onClick={() => handleIncrease(item.id)}>+</span>
+                  <span onClick={() => handleIncrease(item.id)}>
+                    <img src={ImgVectorPos} alt="" />
+                  </span>
                 </div>
                 <div>
                   <h2 className="title">Subtotal</h2>
-                  <p className='subtotal'>R$ {(item.price * item.quantity).toFixed(2)}</p>
+                  <p className='subtotal'>{formatMoney(item.price * item.quantity)}</p>
                 </div>
               </div>
             </div>
@@ -72,7 +80,7 @@ function ResponsiveCart() {
               <button onClick={handleButtonSuccess}>Finalizar Pedido</button>
               <div className='total'>
                 <p>Total</p>
-                <h2>R$ {total.toFixed(2)}</h2>
+                <h2>R$ {formatMoney(total)}</h2>
               </div>
             </div>
           </Action>

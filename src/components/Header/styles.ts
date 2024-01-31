@@ -17,14 +17,13 @@ export const Content = styled.div`
 
   a{
     text-decoration: none;
-
-    h1{
-      font-size: 20px;
-      font-weight: 700;
-      color: #FFF;
-    }
   }
   
+  h1{
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFF;
+  }
 `
 export const CartContent = styled.div`
   display: flex;

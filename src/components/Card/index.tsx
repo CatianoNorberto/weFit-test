@@ -1,6 +1,9 @@
 import { useContext } from "react";
-import CartContext from '../../context/cartContext';
+
 import Mdaddshoppingcart from '../../assets/imagens/mdaddshoppingcart.png'
+
+import { formatMoney } from '../../utils/formatMoney'
+import CartContext from '../../context/cartContext';
 
 interface CardProps {
   id: string;
@@ -19,7 +22,7 @@ function Card({ id, image, title, price }: CardProps) {
       <Content>
         <img src={image} alt={title} />
         <h2>{title}</h2>
-        <p>R$ {price.toFixed(2)}</p>
+        <p>{formatMoney(price)}</p>
 
         <div style={{ width: '100%'}}>
           <button

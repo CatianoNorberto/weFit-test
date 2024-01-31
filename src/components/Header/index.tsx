@@ -11,9 +11,7 @@ function Header() {
   return (
     <Container>
       <Content>
-        <Link to='/'>
-          <h1>WeMovies</h1>
-        </Link>
+        <h1>WeMovies</h1>
         <Link to='/products'>
           <CartContent>
             <ItemTitle>

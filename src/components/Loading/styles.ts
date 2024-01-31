@@ -1,11 +1,29 @@
-import styled from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
+const rotateAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const LoadingContainer = styled.div`
   width: 100%;
-  height: 100%;
-  position: absolute;
-  align-items: center;
+  height: 100vh;
+  display: flex;
   justify-content: center;
-  top: 320px;
+  align-items: center;
+  
+  position: absolute;
+`;
+
+export const LoadingSpinner = styled.div`
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #fff;
+  width: 40px;
+  height: 40px;
+  animation: ${rotateAnimation} 1s linear infinite;
 `;
